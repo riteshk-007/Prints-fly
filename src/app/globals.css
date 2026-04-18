@@ -3,25 +3,62 @@
 @tailwind utilities;
 
 :root {
+  /* Brand Colors (HEX) */
+  --navy: #0A1172;
+  --magenta: #E91E8C;
+  --cyan: #00BFFF;
+  --dark: #0A0F2C;
+  --light: #F8F9FF;
+
+  /* Surfaces */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0A0F2C;
+  --border: #E5E7EB;
+  --muted: #F8F9FF;
+  --muted-foreground: #6B7280;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-white text-navy font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Gradient text */
+  .text-gradient-brand {
+    background-image: linear-gradient(135deg, #E91E8C, #00BFFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
+
+  /* Glassmorphism card */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  /* Marquee pause on hover */
+  .marquee-pause:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+}
+
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(25px, -18px) scale(1.06); }
+  66%       { transform: translate(-12px, 22px) scale(0.96); }
+}
+.animate-blob {
+  animation: blob 14s ease-in-out infinite;
 }
