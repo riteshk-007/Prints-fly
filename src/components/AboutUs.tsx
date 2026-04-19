@@ -33,7 +33,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 
 export function AboutUs() {
   return (
-    <section id="about" className="bg-white py-20 px-4 sm:px-6">
+    <section id="about" className="bg-white py-14 md:py-16 overflow-x-hidden px-4 sm:px-6">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* ── LEFT ── */}
